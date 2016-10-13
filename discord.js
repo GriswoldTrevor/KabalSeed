@@ -52,7 +52,7 @@ var discordWidget = discordWidget || (function(){
           default:
           themeFile = 'light.css';
         }
-        $('head').append('<link rel="stylesheet" href="https://321b6022d18bf26c48b3864d84f3534f65d6af0b.googledrive.com/host/0B50XrqqQhei2UTVwN0kyWmxaVjQ/' + themeFile + '" type="text/css" />');
+        $('head').append('<link rel="stylesheet" href="https://griswoldtrevor.github.io/KabalSeed/' + themeFile + '" type="text/css" />');
 
         var url = 'https://discordapp.com/api/servers/' + _params.serverId + '/embed.json';
 
