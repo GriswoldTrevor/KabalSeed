@@ -52,8 +52,6 @@ var discordWidget = discordWidget || (function(){
           default:
           themeFile = 'light.css';
         }
-        $('head').append('<link rel="stylesheet" href="https://griswoldtrevor.github.io/KabalSeed/' + themeFile + '" type="text/css" />');
-
         var url = 'https://discordapp.com/api/servers/' + _params.serverId + '/embed.json';
 
         var xmlhttp = new XMLHttpRequest();
