@@ -1,6 +1,6 @@
 var discordWidget = discordWidget || (function(){
   var _params = {};
-  var version = '1.0';
+  var version = '1.1';
 
   return {
     init : function(Params) {
@@ -211,13 +211,16 @@ var discordWidget = discordWidget || (function(){
 
           treeElement.innerHTML = formatted;
 		  
-		  var onlineUsers = 0;
+		  var chattingUsers = 0;
 		  for (var i = 0; i < d.members.length; i++) {
               if (d.members[i].channel_id) {
-                onlineUsers = onlineUsers + 1;
+                chattingUsers = chattingUsers + 1;
               }
             }
-          usersElement.innerHTML = onlineUsers + ' Users Online';
+          var usersString = d.members.length + ' Users Online'
+		  if (chattingUsers > 0) 
+			usersString = usersString + ', ' + chattingUsers + ' In Chat';
+          usersElement.innerHTML = usersString;
           if (p.join) {
             joinElement.innerHTML = discordJoin;
           } else {
