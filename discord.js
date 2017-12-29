@@ -1,6 +1,6 @@
 var discordWidget = discordWidget || (function(){
   var _params = {};
-  var version = '1.1';
+  var version = '1.2';
 
   return {
     init : function(Params) {
@@ -96,14 +96,19 @@ var discordWidget = discordWidget || (function(){
         function renderUser(member, channelId) {
           var gameName = '';
           if (member.game)
-          gameName = ' - ' + member.game.name;
+		    gameName = ' - ' + member.game.name;
           if (member.channel_id == channelId) {
+			var memberName = member.username;
+			if (member.nick)
+			  memberName = member.nick;
+			if (memberName.length > 25)
+				memberName = memberName.substring(0, 22).trim() + "...";
             if (member.status != 'online') {
               return '<li class="discord-user"><div class="discord-user-status discord-idle"></div>' +
-              member.username + '<span>' + gameName + '</span></li>';
+              memberName + '<span>' + gameName + '</span></li>';
             } else {
               return '<li class="discord-user"><div class="discord-user-status discord-online"></div>' +
-              member.username + '<span>' + gameName + '</span></li>';
+              memberName + '<span>' + gameName + '</span></li>';
             }
           }
           else {
